@@ -57,6 +57,16 @@ For make sure if your neo4j database instance is running try in your node projec
    ```javascript
    const schema = augmentSchema(makeExecutableSchema({typeDefs}));
    ```
+   
+   or
+   ```javascript
+   // declarations section
+   const { makeAugmentedSchema } = require('neo4j-graphql-js');
+   ```
+   
+   ```javascript
+   const schema = makeAugmentedSchema({typeDefs});
+    ```
 
 7. Start to listen the server with `ApolloServer` from `apollo-server` package
 

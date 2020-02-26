@@ -1,7 +1,7 @@
 // declarations section
 const { v1: neo4j } = require('neo4j-driver');
 const { ApolloServer, makeExecutableSchema } = require('apollo-server');
-const { augmentSchema } = require('neo4j-graphql-js');
+const { augmentSchema, makeAugmentedSchema } = require('neo4j-graphql-js');
 
 
 require('dotenv').config();
@@ -23,7 +23,8 @@ type Query {
 }
 `;
 
-const schema = augmentSchema(makeExecutableSchema({typeDefs}));
+// const schema = augmentSchema(makeExecutableSchema({typeDefs}));
+const schema = makeAugmentedSchema({typeDefs});
 
 new ApolloServer({
     schema,
