@@ -201,3 +201,13 @@ CREATE (c3po:Person) SET c3po = $c3po
 CREATE (r2d2:Person) SET r2d2 = $r2d2
 RETURN *
 ```
+
+```cypher
+CREATE (empire:Film {title: "The Empire Strikes Back"})
+CREATE (luke)-[:HAS_SPECIES]->(human)
+CREATE (luke)-[:HAS_HOMEWORLD]->(tatooine)
+CREATE (luke)-[:APPEARED_IN]->(empire)
+CREATE (human)-[:APPEARED_IN]->(empire)
+CREATE (tatooine)-[:APPEARED_IN]->(empire)
+RETURN *
+```
