@@ -1,5 +1,10 @@
+// declarations section
 const { v1: neo4j } = require('neo4j-driver');
 const { ApolloServer, makeExecutableSchema } = require('apollo-server');
+const { augmentSchema } = require('neo4j-graphql-js');
+
+
+require('dotenv').config();
 
 const driver = neo4j.driver(
     `bolt://${process.env.NEO_HOST}:${process.env.NEO_PORT}`,
@@ -18,7 +23,7 @@ type Query {
 }
 `;
 
-const schema = makeExecutableSchema({typeDefs});
+const schema = augmentSchema(makeExecutableSchema({typeDefs}));
 
 new ApolloServer({
     schema,

@@ -1,18 +1,20 @@
 # Neo4j GraphQL and Node js
 
-For run and test if your neo4j database instance run try in your node project set the next steps
+For make sure if your neo4j database instance is running try in your node project set up the next steps
 
-1. Install npm packages required `npm install neo4j-driver@1.7.6 apollo-server graphql-request`
+1. Install npm packages required `npm install neo4j-driver@1.7.6 apollo-server neo4j-graphql-js`
 
 2. Setup driver
 
     ```javascript
+    // declarations section
     const { v1: neo4j } = require('neo4j-driver');
     ```
 
 3. Import apollo server
 
    ```javascript
+   // declarations section
    const { ApolloServer, makeExecutableSchema } = require('apollo-server');
    ```
 
@@ -22,6 +24,14 @@ For run and test if your neo4j database instance run try in your node project se
    const driver = neo4j.driver(
     `bolt://${process.env.NEO_HOST}:${process.env.NEO_PORT}`,
     neo4j.auth.basic(process.env.NEO_USER, process.env.NEO_PASS));
+   ```
+
+   for use the `process.env` of node you need use an environment config in this case we use the `dotenv` package. You can install with this command `npm i dotenv --save`
+
+   and import with this with this code:
+
+   ```javascript
+   require('dotenv').config();
    ```
 
 5. Create the types definition
@@ -37,10 +47,15 @@ For run and test if your neo4j database instance run try in your node project se
    `;
    ```
 
-6. Generate the schema building using `makeExecutableSchema` from `apollo-server` package
+6. Generate the schema definition and building for using with neo4j and graphql
 
    ```javascript
-   const schema = makeExecutableSchema({typeDefs});
+   // declarations section
+   const { augmentSchema } = require('neo4j-graphql-js');
+   ```
+
+   ```javascript
+   const schema = augmentSchema(makeExecutableSchema({typeDefs}));
    ```
 
 7. Start to listen the server with `ApolloServer` from `apollo-server` package
@@ -53,3 +68,6 @@ For run and test if your neo4j database instance run try in your node project se
    .listen(8000, '0.0.0.0')
    .then(({ url }) => console.log(`The API is running on ${url}`));
    ```
+
+---
+**So, Ready to try this API!**
