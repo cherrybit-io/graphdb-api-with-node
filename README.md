@@ -10,4 +10,4 @@ after this you need install the dependencies with this command
 
 finally for to try the code with your `.env` configurations you need run the next command
 
-`nodemon`
+`npm start`

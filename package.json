@@ -1,6 +1,9 @@
 {
   "name": "garphdb-api-with-node",
   "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
   "description": "api graph db with node, graphql and apollo server",
   "main": "index.js",
   "license": "MIT",
