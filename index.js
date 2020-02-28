@@ -15,11 +15,31 @@ const driver = neo4j.driver(
 );
 
 const typeDefs = `
-type Person { name: String! }
-type Planet { name: String! }
+type Person { 
+    name: String!
+    homeworld: Planet
+    species: [Species]
+    films: [Film] 
+}
+type Planet {
+    name: String!
+    films: [Film]
+}
+type Species {
+    name: String!
+    films: [Film]
+}
+type Film {
+    title: String!
+    people: [Person]
+    planets: [Planet]
+    species: [Species]
+}
 type Query {
     Person: [Person]
     Planet: [Planet]
+    Species: [Species]
+    Film: [Film]
 }
 `;
 

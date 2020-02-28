@@ -23,7 +23,7 @@ Relationships:
 
 ```cypher
 CREATE (my_node:Thing)
-RETURN my_node cypher
+RETURN my_node
 ```
 
 ```cypher
@@ -199,5 +199,15 @@ CREATE (alderan:Planet) SET alderan = $alderan
 CREATE (hoth:Planet) SET hoth = $hoth
 CREATE (c3po:Person) SET c3po = $c3po
 CREATE (r2d2:Person) SET r2d2 = $r2d2
+RETURN *
+```
+
+```cypher
+CREATE (empire:Film {title: "The Empire Strikes Back"})
+CREATE (luke)-[:HAS_SPECIES]->(human)
+CREATE (luke)-[:HAS_HOMEWORLD]->(tatooine)
+CREATE (luke)-[:APPEARED_IN]->(empire)
+CREATE (human)-[:APPEARED_IN]->(empire)
+CREATE (tatooine)-[:APPEARED_IN]->(empire)
 RETURN *
 ```

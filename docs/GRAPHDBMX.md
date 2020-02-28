@@ -1,5 +1,13 @@
 # Neo4j GraphQL and Node js
 
+![neo image][neo] ![graph image][graph] ![node image][node]
+
+[neo]: https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j_logo-325x150-113x50.png "Neo4j Logo"
+
+[graph]: https://graphql.org/img/logo.svg "GraphQL Logo"
+
+[node]: https://nodejs.org/static/images/logo.svg "Node js Logo"
+
 For make sure if your neo4j database instance is running try in your node project set up the next steps
 
 1. Install npm packages required `npm install neo4j-driver@1.7.6 apollo-server neo4j-graphql-js`
@@ -57,13 +65,14 @@ For make sure if your neo4j database instance is running try in your node projec
    ```javascript
    const schema = augmentSchema(makeExecutableSchema({typeDefs}));
    ```
-   
+
    or
+
    ```javascript
    // declarations section
    const { makeAugmentedSchema } = require('neo4j-graphql-js');
    ```
-   
+
    ```javascript
    const schema = makeAugmentedSchema({typeDefs});
     ```
