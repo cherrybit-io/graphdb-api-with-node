@@ -23,7 +23,7 @@ Relationships:
 
 ```cypher
 CREATE (my_node:Thing)
-RETURN my_node cypher
+RETURN my_node
 ```
 
 ```cypher
