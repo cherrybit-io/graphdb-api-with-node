@@ -2,7 +2,7 @@
 
 ![neo image][neo] ![graph image][graph] ![node image][node]
 
-[neo]: https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/neo4j_logo-325x150-113x50.png "Neo4j Logo"
+[neo]: https://go.neo4j.com/rs/710-RRC-335/images/neo4j_logo.svg "Neo4j Logo"
 
 [graph]: https://graphql.org/img/logo.svg "GraphQL Logo"
 
